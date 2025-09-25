@@ -1,0 +1,129 @@
+
+{
+  "live_matches": [
+    {
+      "fixture": {
+        "id": "1",
+        "date": "2024-07-20T18:00:00Z",
+        "status": {
+          "long": "In Progress",
+          "short": "LIVE",
+          "elapsed": 45
+        }
+      },
+      "teams": {
+        "home": {
+          "id": "101",
+          "name": "Team A",
+          "logo": "https://media.api-sports.io/football/teams/101.png"
+        },
+        "away": {
+          "id": "102",
+          "name": "Team B",
+          "logo": "https://media.api-sports.io/football/teams/102.png"
+        }
+      },
+      "goals": {
+        "home": 1,
+        "away": 0
+      }
+    }
+  ],
+  "today_matches": [
+    {
+      "fixture": {
+        "id": "2",
+        "date": "2024-07-20T20:00:00Z",
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": 0
+        }
+      },
+      "teams": {
+        "home": {
+          "id": "103",
+          "name": "Team C",
+          "logo": "https://media.api-sports.io/football/teams/103.png"
+        },
+        "away": {
+          "id": "104",
+          "name": "Team D",
+          "logo": "https://media.api-sports.io/football/teams/104.png"
+        }
+      },
+      "goals": {
+        "home": 0,
+        "away": 0
+      }
+    }
+  ],
+  "match_details": {
+    "1": {
+      "fixture": {
+        "id": "1",
+        "date": "2024-07-20T18:00:00Z",
+        "status": {
+          "long": "In Progress",
+          "short": "LIVE",
+          "elapsed": 45
+        }
+      },
+      "teams": {
+        "home": {
+          "id": "101",
+          "name": "Team A",
+          "logo": "https://media.api-sports.io/football/teams/101.png"
+        },
+        "away": {
+          "id": "102",
+          "name": "Team B",
+          "logo": "https://media.api-sports.io/football/teams/102.png"
+        }
+      },
+      "goals": {
+        "home": 1,
+        "away": 0
+      },
+      "statistics": [
+        {"type": "Shots on Goal", "value": "5"},
+        {"type": "Possession", "value": "60%"}
+      ],
+      "events": [
+        {
+          "time": {"elapsed": 25},
+          "team": {"id": "101", "name": "Team A"},
+          "player": {"id": "1001", "name": "Player X"},
+          "type": "Goal",
+          "detail": "Normal Goal"
+        }
+      ]
+    }
+  },
+  "team_details": {
+    "101": {
+      "team": {
+        "id": "101",
+        "name": "Team A",
+        "logo": "https://media.api-sports.io/football/teams/101.png"
+      },
+      "venue": {
+        "name": "Stadium A",
+        "city": "City A"
+      }
+    }
+  },
+  "player_details": {
+    "1001": {
+      "player": {
+        "id": "1001",
+        "name": "Player X",
+        "photo": "https://media.api-sports.io/football/players/1001.png",
+        "age": 28,
+        "nationality": "Country X",
+        "height": "180 cm",
+        "weight": "75 kg"
+      }
+    }
+  }
+}
