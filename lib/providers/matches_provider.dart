@@ -1,8 +1,13 @@
+
 import 'package:flutter/material.dart';
+import 'package:isar/isar.dart';
 import 'package:logging/logging.dart';
+
 import '../models/match.dart';
-import '../services/real_api_service.dart';
+import '../models/team.dart';
 import '../services/favorites_service.dart';
+import '../services/isar_service.dart';
+import '../services/real_api_service.dart';
 
 class MatchesProvider with ChangeNotifier {
   final RealApiService _apiService = RealApiService();
@@ -22,29 +27,84 @@ class MatchesProvider with ChangeNotifier {
   String? get error => _error;
 
   Future<void> fetchLiveMatches() async {
+    await _fetchMatches(
+      fetcher: () => _apiService.getLiveMatches(),
+      cacheUpdater: (matches) => _liveMatches = matches,
+      cacheQuery: (isar) => isar.matchs.filter().isLiveEqualTo(true).findAll(),
+    );
+  }
+
+  Future<void> fetchTodayMatches() async {
+    await _fetchMatches(
+      fetcher: () => _apiService.getTodayMatches(),
+      cacheUpdater: (matches) => _todayMatches = matches,
+      cacheQuery: (isar) {
+        final today = DateTime.now();
+        final startOfDay = DateTime(today.year, today.month, today.day);
+        final endOfDay = startOfDay.add(const Duration(days: 1));
+        return isar.matchs
+            .filter()
+            .matchTimeBetween(startOfDay, endOfDay)
+            .findAll();
+      },
+    );
+  }
+
+  Future<void> _fetchMatches({
+    required Future<List<Match>> Function() fetcher,
+    required void Function(List<Match>) cacheUpdater,
+    required Future<List<Match>> Function(Isar) cacheQuery,
+  }) async {
     _setLoading(true);
     try {
-      _liveMatches = await _apiService.getLiveMatches();
+      final matches = await fetcher();
+      cacheUpdater(matches);
+      await _saveMatchesToCache(matches);
       _error = null;
     } catch (e, s) {
-      _logger.severe('Failed to fetch live matches', e, s);
+      _logger.warning('Failed to fetch matches online, loading from cache', e, s);
       _error = e.toString();
-      _liveMatches = [];
+      await _loadMatchesFromCache(cacheUpdater, cacheQuery);
     }
     _setLoading(false);
   }
 
-  Future<void> fetchTodayMatches() async {
-    _setLoading(true);
-    try {
-      _todayMatches = await _apiService.getTodayMatches();
-      _error = null;
-    } catch (e, s) {
-      _logger.severe('Failed to fetch today matches', e, s);
-      _error = e.toString();
-      _todayMatches = [];
+  Future<void> _saveMatchesToCache(List<Match> matches) async {
+    final isar = IsarService.isar;
+    final teams = <Team>[];
+
+    for (final match in matches) {
+      if (match.homeTeam.value != null) {
+        teams.add(match.homeTeam.value!);
+      }
+      if (match.awayTeam.value != null) {
+        teams.add(match.awayTeam.value!);
+      }
     }
-    _setLoading(false);
+
+    await isar.writeTxn(() async {
+      await isar.teams.putAll(teams);
+      await isar.matchs.putAll(matches);
+      for (final match in matches) {
+        await match.homeTeam.save();
+        await match.awayTeam.save();
+      }
+    });
+    _logger.info('Saved ${matches.length} matches and ${teams.length} teams to cache.');
+  }
+
+  Future<void> _loadMatchesFromCache(
+    void Function(List<Match>) cacheUpdater,
+    Future<List<Match>> Function(Isar) cacheQuery,
+  ) async {
+    final isar = IsarService.isar;
+    final matches = await cacheQuery(isar);
+    for (final match in matches) {
+      await match.homeTeam.load();
+      await match.awayTeam.load();
+    }
+    cacheUpdater(matches);
+    _logger.info('Loaded ${matches.length} matches from cache.');
   }
 
   Future<void> fetchFavoriteMatches() async {
@@ -61,6 +121,7 @@ class MatchesProvider with ChangeNotifier {
         }
       }
       _favoriteMatches = favoriteMatches;
+      await _saveMatchesToCache(_favoriteMatches);
       _error = null;
     } catch (e, s) {
       _logger.severe('Failed to fetch favorite matches', e, s);

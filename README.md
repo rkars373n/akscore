@@ -88,30 +88,242 @@ Configure push notifications for your platform:
 **iOS**: Add notification permissions to `ios/Runner/Info.plist`
 
 ## Project Structure
-
 ```
-lib/
-├── models/           # Data models
-│   ├── match.dart
-│   └── team.dart
-├── providers/        # State management
-│   ├── theme_provider.dart
-│   └── matches_provider.dart
-├── screens/         # UI screens
-│   ├── home_screen.dart
-│   ├── match_details_screen.dart
-│   ├── team_details_screen.dart
-│   ├── player_details_screen.dart
-│   └── settings_screen.dart
-├── services/        # Business logic
-│   ├── api_service.dart
-│   ├── notification_service.dart
-│   ├── realtime_service.dart
-│   └── favorites_service.dart
-├── widgets/         # Reusable components
-│   ├── match_card.dart
-│   └── loading_shimmer.dart
-└── main.dart        # App entry point
+- CHANGELOG.md
+- Could
+- README.md
+- analysis_options.yaml
+- firebase-debug.log
+- firebase.json
+- pubspec.lock
+- pubspec.yaml
+- .idx/
+  - dev.nix
+  - mcp.json
+- .vscode/
+  - launch.json
+  - settings.json
+- android/
+  - build.gradle.kts
+  - gradle.properties
+  - settings.gradle.kts
+  - app/
+    - build.gradle.kts
+    - google-services.json
+    - src/
+      - debug/AndroidManifest.xml
+      - main/
+        - AndroidManifest.xml
+        - java/io/flutter/plugins/GeneratedPluginRegistrant.java
+        - kotlin/com/example/akscore/MainActivity.kt
+        - res/
+          - drawable/launch_background.xml
+          - drawable-v21/launch_background.xml
+          - mipmap-hdpi/ic_launcher.png
+          - mipmap-mdpi/ic_launcher.png
+          - mipmap-xhdpi/ic_launcher.png
+          - mipmap-xxhdpi/ic_launcher.png
+          - mipmap-xxxhdpi/ic_launcher.png
+          - values/styles.xml
+          - values-night/styles.xml
+      - profile/AndroidManifest.xml
+  - gradle/wrapper/
+    - gradle-wrapper.jar
+    - gradle-wrapper.properties
+- assets/
+  - data/db.json
+  - ml/smartreply.tflite
+- build/
+  - 1b937ddf1f24d57bfe5a30c4ee137dee/
+    - _composite.stamp
+    - gen_dart_plugin_registrant.stamp
+    - gen_localizations.stamp
+  - flutter_assets/
+    - AssetManifest.bin
+    - AssetManifest.bin.json
+    - AssetManifest.json
+    - FontManifest.json
+    - NOTICES
+    - assets/
+      - data/db.json
+      - ml/smartreply.tflite
+    - fonts/MaterialIcons-Regular.otf
+    - packages/
+      - cupertino_icons/assets/CupertinoIcons.ttf
+      - font_awesome_flutter/lib/fonts/
+        - Font Awesome 7 Brands-Regular-400.otf
+        - Font Awesome 7 Free-Regular-400.otf
+        - Font Awesome 7 Free-Solid-900.otf
+    - shaders/ink_sparkle.frag
+- ios/
+  - Flutter/
+    - AppFrameworkInfo.plist
+    - Debug.xcconfig
+    - Release.xcconfig
+  - akscore/
+    - AppDelegate.swift
+    - Assets.xcassets/
+      - AppIcon.appiconset/
+        - Contents.json
+        - Icon-App-1024x1024@1x.png
+        - Icon-App-20x20@1x.png
+        - Icon-App-20x20@2x.png
+        - Icon-App-20x20@3x.png
+        - Icon-App-29x29@1x.png
+        - Icon-App-29x29@2x.png
+        - Icon-App-29x29@3x.png
+        - Icon-App-40x40@1x.png
+        - Icon-App-40x40@2x.png
+        - Icon-App-40x40@3x.png
+        - Icon-App-60x60@2x.png
+        - Icon-App-60x60@3x.png
+        - Icon-App-76x76@1x.png
+        - Icon-App-76x76@2x.png
+        - Icon-App-83.5x83.5@2x.png
+      - LaunchImage.imageset/
+        - Contents.json
+        - LaunchImage.png
+        - LaunchImage@2x.png
+        - LaunchImage@3x.png
+        - README.md
+    - Base.lproj/
+      - LaunchScreen.storyboard
+      - Main.storyboard
+    - GeneratedPluginRegistrant.h
+    - GeneratedPluginRegistrant.m
+    - Info.plist
+    - Runner-Bridging-Header.h
+  - akscore.xcodeproj/
+    - project.pbxproj
+    - project.xcworkspace/
+      - contents.xcworkspacedata
+      - xcshareddata/
+        - IDEWorkspaceChecks.plist
+        - WorkspaceSettings.xcsettings
+    - xcshareddata/xcschemes/akscore.xcscheme
+  - akscore.xcworkspace/
+    - contents.xcworkspacedata
+    - xcshareddata/
+      - IDEWorkspaceChecks.plist
+      - WorkspaceSettings.xcsettings
+- lib/
+  - firebase_options.dart
+  - main.dart
+  - models/
+    - favorite.dart
+    - favorite.g.dart
+    - match.dart
+    - match.g.dart
+    - player.dart
+    - player.g.dart
+    - team.dart
+    - team.g.dart
+  - providers/
+    - matches_provider.dart
+    - players_provider.dart
+    - teams_provider.dart
+    - theme_provider.dart
+  - screens/
+    - favorites_screen.dart
+    - home_screen.dart
+    - login_screen.dart
+    - match_details_screen.dart
+    - player_details_screen.dart
+    - settings_screen.dart
+    - splash_screen.dart
+    - team_details_screen.dart
+  - services/
+    - fake_api_service.dart
+    - favorites_service.dart
+    - isar_service.dart
+    - notification_service.dart
+    - real_api_service.dart
+    - realtime_service.dart
+    - smart_reply_service.dart
+  - utils/json_utils.dart
+  - widgets/
+    - chat_widget.dart
+    - loading_shimmer.dart
+    - match_card.dart
+    - match_event_card.dart
+    - match_statistics_card.dart
+    - player_card.dart
+    - team_card.dart
+- linux/
+  - CMakeLists.txt
+  - flutter/
+    - CMakeLists.txt
+    - generated_plugin_registrant.cc
+    - generated_plugin_registrant.h
+    - generated_plugins.cmake
+  - runner/
+    - CMakeLists.txt
+    - main.cc
+    - my_application.cc
+    - my_application.h
+- macos/
+  - Flutter/
+    - Flutter-Debug.xcconfig
+    - Flutter-Release.xcconfig
+    - GeneratedPluginRegistrant.swift
+  - Runner/
+    - AppDelegate.swift
+    - Assets.xcassets/
+      - AppIcon.appiconset/
+        - Contents.json
+        - app_icon_1024.png
+        - app_icon_128.png
+        - app_icon_16.png
+        - app_icon_256.png
+        - app_icon_32.png
+        - app_icon_512.png
+        - app_icon_64.png
+    - Base.lproj/MainMenu.xib
+    - Configs/
+      - AppInfo.xcconfig
+      - Debug.xcconfig
+      - Release.xcconfig
+      - Warnings.xcconfig
+    - DebugProfile.entitlements
+    - Info.plist
+    - MainFlutterWindow.swift
+    - Release.entitlements
+  - Runner.xcodeproj/
+    - project.pbxproj
+    - project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+    - xcshareddata/xcschemes/Runner.xcscheme
+  - Runner.xcworkspace/contents.xcworkspacedata
+- test/
+  - widget_test.dart
+  - widget_test.mocks.dart
+- web/
+  - favicon.png
+  - icons/
+    - Icon-192.png
+    - Icon-512.png
+    - Icon-maskable-192.png
+    - Icon-maskable-512.png
+  - index.html
+  - manifest.json
+- windows/
+  - CMakeLists.txt
+  - flutter/
+    - CMakeLists.txt
+    - generated_plugin_registrant.cc
+    - generated_plugin_registrant.h
+    - generated_plugins.cmake
+  - runner/
+    - CMakeLists.txt
+    - Runner.rc
+    - flutter_window.cpp
+    - flutter_window.h
+    - main.cpp
+    - resource.h
+    - runner.exe.manifest
+    - utils.cpp
+    - utils.h
+    - win32_window.cpp
+    - win32_window.h
 ```
 
 ## Key Dependencies
@@ -181,7 +393,7 @@ Configure notifications for your specific use case:
 await _notifications.show(
   matchId.hashCode,
   'GOAL! $scorer',
-  '$team scored in the $minute\' minute',
+  '$team scored in the $minute' minute',
   details,
 );
 ```
