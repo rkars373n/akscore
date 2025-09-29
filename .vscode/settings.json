@@ -1,0 +1,55 @@
+{
+    "vscode-corda.isCordaProject": false,
+    // Dart & Flutter Settings
+    "dart.flutterSdkPath": null,
+    "dart.sdkPath": null,
+    "dart.lineLength": 80,
+    "dart.insertArgumentPlaceholders": false,
+    "dart.previewFlutterUiGuides": true,
+    "dart.previewFlutterUiGuidesCustomTracking": true,
+    "dart.openDevTools": "flutter",
+    "dart.warnWhenEditingFilesOutsideWorkspace": true,
+    "dart.allowAnalytics": false,
+    "dart.checkForSdkUpdates": true,
+    "dart.closingLabels": true,
+    "dart.enableSdkFormatter": true,
+    "dart.enableSnippets": true,
+    "dart.triggerSignatureHelpAutomatically": true,
+    "dart.completeFunctionCalls": true,
+    "dart.showTodos": true,
+    "dart.runPubGetOnPubspecChanges": true,
+    "dart.promptToGetPackages": true,
+    "dart.flutterSelectDeviceWhenConnected": true,
+    "dart.flutterHotReloadOnSave": "always",
+    "dart.flutterHotRestartOnSave": "never",
+    // Editor Settings
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+        80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    // File Associations
+    "files.associations": {
+        "*.dart": "dart"
+    },
+    // Debug Settings
+    "debug.console.fontSize": 14,
+    "debug.console.lineHeight": 20,
+    "debug.inlineValues": true,
+    "debug.showBreakpointsInOverviewRuler": true,
+    // Terminal Settings
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.fontSize": 14,
+    // Workspace Settings
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.iconTheme": "vs-seti"
+}

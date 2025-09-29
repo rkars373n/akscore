@@ -1,0 +1,116 @@
+{
+    "matches": [
+        {
+            "id": 1,
+            "competition": "Premier League",
+            "season": "2023/24",
+            "utcDate": "2024-01-15T15:00:00Z",
+            "status": "IN_PLAY",
+            "matchday": 21,
+            "stage": "REGULAR_SEASON",
+            "group": "Group A",
+            "lastUpdated": "2024-01-15T15:30:00Z",
+            "homeTeam": {
+                "id": 1,
+                "name": "Manchester United",
+                "shortName": "Man United",
+                "tla": "MUN",
+                "crest": "https://crests.football-data.org/65.png"
+            },
+            "awayTeam": {
+                "id": 2,
+                "name": "Liverpool FC",
+                "shortName": "Liverpool",
+                "tla": "LIV",
+                "crest": "https://crests.football-data.org/64.png"
+            },
+            "score": {
+                "winner": "UNKNOWN",
+                "duration": "REGULAR",
+                "fullTime": {
+                    "home": 2,
+                    "away": 1
+                },
+                "halfTime": {
+                    "home": 1,
+                    "away": 0
+                }
+            },
+            "events": [
+                {
+                    "id": 1,
+                    "type": "GOAL",
+                    "team": "HOME_TEAM",
+                    "player": "Marcus Rashford",
+                    "minute": 15,
+                    "description": "Goal scored",
+                    "eventType": "GOAL"
+                },
+                {
+                    "id": 2,
+                    "type": "GOAL",
+                    "team": "AWAY_TEAM",
+                    "player": "Mohamed Salah",
+                    "minute": 45,
+                    "description": "Goal scored",
+                    "eventType": "GOAL"
+                },
+                {
+                    "id": 3,
+                    "type": "GOAL",
+                    "team": "HOME_TEAM",
+                    "player": "Bruno Fernandes",
+                    "minute": 67,
+                    "description": "Goal scored",
+                    "eventType": "GOAL"
+                }
+            ]
+        }
+    ],
+    "teams": [
+        {
+            "id": 1,
+            "name": "Manchester United",
+            "shortName": "Man United",
+            "tla": "MUN",
+            "crest": "https://crests.football-data.org/65.png",
+            "address": "Old Trafford, Manchester",
+            "website": "https://www.manutd.com",
+            "founded": 1878,
+            "clubColors": "Red / White / Black",
+            "venue": "Old Trafford"
+        },
+        {
+            "id": 2,
+            "name": "Liverpool FC",
+            "shortName": "Liverpool",
+            "tla": "LIV",
+            "crest": "https://crests.football-data.org/64.png",
+            "address": "Anfield, Liverpool",
+            "website": "https://www.liverpoolfc.com",
+            "founded": 1892,
+            "clubColors": "Red",
+            "venue": "Anfield"
+        }
+    ],
+    "players": [
+        {
+            "id": 1,
+            "name": "Marcus Rashford",
+            "position": "Forward",
+            "dateOfBirth": "1997-10-31",
+            "nationality": "England",
+            "shirtNumber": "10",
+            "role": "Player"
+        },
+        {
+            "id": 2,
+            "name": "Mohamed Salah",
+            "position": "Forward",
+            "dateOfBirth": "1992-06-15",
+            "nationality": "Egypt",
+            "shirtNumber": "11",
+            "role": "Player"
+        }
+    ]
+}

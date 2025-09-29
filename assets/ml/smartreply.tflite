@@ -1,0 +1,4 @@
+# This is a placeholder for the TensorFlow Lite model file
+# In a real implementation, you would have a trained model file here
+# The file should be a binary TensorFlow Lite model for smart reply functionality
+

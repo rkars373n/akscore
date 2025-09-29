@@ -1,0 +1,11 @@
+class ApiConfig {
+  // Replace with your own API key from https://www.football-data.org/
+  static const String footballDataApiKey = 'YOUR_FOOTBALL_DATA_API_KEY_HERE';
+
+  // Replace with your own API key from https://rapidapi.com/api-sports/api/api-football/
+  static const String rapidApiKey = 'YOUR_RAPIDAPI_KEY_HERE';
+
+  // API rate limits (requests per minute)
+  static const int footballDataApiRateLimit = 10;
+  static const int rapidApiRateLimit = 100;
+}

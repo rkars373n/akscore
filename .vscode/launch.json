@@ -1,0 +1,68 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "AkScore - Chrome Debug",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "deviceId": "chrome",
+            "args": [],
+            "console": "debugConsole",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "FLUTTER_WEB_AUTO_DETECT": "true"
+            }
+        },
+        {
+            "name": "AkScore - Windows Debug",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "deviceId": "windows",
+            "args": [],
+            "console": "debugConsole",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "AkScore - Android Debug",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "deviceId": "android",
+            "args": [],
+            "console": "debugConsole",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "AkScore - Edge Debug",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "deviceId": "edge",
+            "args": [],
+            "console": "debugConsole",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "AkScore - Profile Mode",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "flutterMode": "profile",
+            "args": [],
+            "console": "debugConsole",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "AkScore - Release Mode",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "flutterMode": "release",
+            "args": [],
+            "console": "debugConsole",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
